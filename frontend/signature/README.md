@@ -10,10 +10,6 @@ Use of this sample app is subject to our [Terms of Use](https://zoom.us/docs/en-
 
 This is a Node.js / Express server that generates a [Web or Native Meeting SDK signature](https://marketplace.zoom.us/docs/sdk/native-sdks/web/signature) via an http request from your frontend for use in the Web or Native Meeting SDKs.
 
-If you would like to skip these steps and just deploy the finished code to Heroku, click the Deploy to Heroku button. (You will still need to configure a few simple things, so skip to [Deployment](#deployment).)
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 ## Installation
 
 In terminal, run the following command to clone the repo:
@@ -49,16 +45,16 @@ In terminal, run the following command to clone the repo:
 
 ## Usage
 
-Make a POST request to `http://localhost:4000` (or your deployed url) with the following request body:
+Make a POST request to `http://localhost:3001` (or your deployed url) with the following request body:
 
-| Key                   | Value Description |
-| -----------------------|-------------|
-| meetingNumber          | Required, the Zoom Meeting or Webinar Number. |
-| role                   | Required, `0` to specify participant, `1` to specify host.  |
+| Key           | Value Description                                          |
+| ------------- | ---------------------------------------------------------- |
+| meetingNumber | Required, the Zoom Meeting or Webinar Number.              |
+| role          | Required, `0` to specify participant, `1` to specify host. |
 
 ### Example Request
 
-POST `http://localhost:4000`
+POST `http://localhost:3001`
 
 Request Body:
 
@@ -90,8 +86,8 @@ ZoomMtg.join({
   sdkKey: sdkKey,
   userName: userName,
   meetingNumber: meetingNumber,
-  passWord: password
-})
+  passWord: password,
+});
 
 // Web Meeting SDK Component View example
 client.join({
@@ -99,45 +95,9 @@ client.join({
   sdkKey: sdkKey,
   userName: userName,
   meetingNumber: meetingNumber,
-  password: password
-})
+  password: password,
+});
 ```
-
-## Deployment
-
-If you used the Deploy to Heroku button, enter a name for your app on the page the button took you to (or leave it blank to have a name generated for you), and fill in the values for these,
-
-- `ZOOM_SDK_KEY` (Your Zoom SDK App Key, found on your Zoom SDK App Credentials page)
-- `ZOOM_SDK_SECRET` (Your Zoom SDK App Secret, found on your Zoom SDK App Credentials page)
-
-Then click "Deploy App".
-
-Now you can generate and [use your signature](#usage) via the deployed url Heroku provides.
-
-If you cloned this repo, use the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) to deploy your server.
-
-1. In terminal, create a Heroku app:
-
-   `$ heroku create`
-
-1. Add your files:
-
-   `$ git add -A`
-
-1. Commit your files:
-
-   `$ git commit -m "deploying to heroku"`
-
-1. Deploy your server by pushing your files to Heroku:
-
-   `$ git push origin heroku`
-
-1. Navigate to your app on the Heroku dashboard, click settings, and add your SDK App Credentials in the Config Variables,
-
-   - `ZOOM_SDK_KEY` (Your Zoom SDK App Key, found on your Zoom SDK App Credentials page)
-   - `ZOOM_SDK_SECRET` (Your Zoom SDK App Secret, found on your Zoom SDK App Credentials page)
-
-Now you can generate and [use your signature](#usage) via the deployed url Heroku provides.
 
 ## Need help?
 
