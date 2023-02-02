@@ -2,7 +2,7 @@ import "./App.css";
 
 import ZoomMtgEmbedded from "@zoomus/websdk/embedded";
 import React, { useState } from "react";
-
+import axios from "axios";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -103,6 +103,11 @@ const App = () => {
           meetingNumber: meetingNumber,
           password: passCode,
           userName: userName,
+        });
+
+        // GET participants67
+        axios.get("http://localhost:5000/").then((res) => {
+          console.log(res.data); // This is participant list
         });
       },
       (error) => {
