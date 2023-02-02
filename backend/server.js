@@ -1,10 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-// const users = require("./routes/api/users");
-
 const app = express();
-
 // BodyParser Middleware
 app.use(
   express.urlencoded({
@@ -21,9 +18,6 @@ mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("MongoDB successfully connected"))
   .catch((err) => console.log(err));
-
-// // Routes
-// app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
