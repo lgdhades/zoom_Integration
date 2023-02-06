@@ -103,11 +103,17 @@ const App = () => {
           meetingNumber: meetingNumber,
           password: passCode,
           userName: userName,
-        });
+          success: (success) => {
+            console.log("success");
 
-        // GET participants67
-        axios.get("http://localhost:5000/").then((res) => {
-          console.log(res.data); // This is participant list
+            // GET participants67
+            axios.get("http://localhost:5000/").then((res) => {
+              console.log(res.data); // This is participant list
+            });
+          },
+          error: (error) => {
+            console.log(error);
+          },
         });
       },
       (error) => {
