@@ -142,7 +142,6 @@ const App = () => {
     });
   };
 
-  // This is sample.
   return (
     <div className="App">
       <Box sx={{ display: "flex" }}>
